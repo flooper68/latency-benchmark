@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  service_redis_dev:
+    image: redis:7-alpine
+    container_name: redis-becnhmark
+    ports:
+      - "6380:6379"

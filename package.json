@@ -1,0 +1,27 @@
+{
+  "name": "latency-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npm run start:child && npm run start:worker && npm run start:pub-sub && npm run start:streams",
+    "start:child": "tsc && node dist/child-process/index.js",
+    "start:worker": "tsc && node dist/worker-threads/index.js",
+    "start:pub-sub": "tsc && concurrently \"node dist/pub-sub/dispatcher.js\" \"node dist/pub-sub/worker.js\"",
+    "start:streams": "tsc && concurrently \"node dist/streams/dispatcher.js\" \"node dist/streams/worker.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/ioredis": "^5.0.0",
+    "@types/uuid": "^9.0.1",
+    "concurrently": "^8.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "ioredis": "^5.3.2",
+    "uuid": "^9.0.0"
+  }
+}
